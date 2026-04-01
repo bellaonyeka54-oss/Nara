@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nara</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial; padding: 20px;">
+
+<h2>Nara</h2>
+
+<p>Describe your symptoms:</p>
+
+<textarea id="input" rows="4" style="width:100%; padding:10px;"></textarea>
+
+<br><br>
+
+<button onclick="check()" style="width:100%; padding:10px;">
+Check Risk
+</button>
+
+<p id="output" style="margin-top:20px; white-space: pre-line;"></p>
+
+<script>
+function check() {
+  let text = document.getElementById("input").value.toLowerCase();
+  let result = "";
+
+  if (text.includes("bleeding") || text.includes("pain") || text.includes("discharge")) {
+    result = "Risk Level: MODERATE\n\nRecommendation: Visit a clinic for cervical screening as soon as possible.";
+  } 
+  else if (text.trim() === "") {
+    result = "Please describe your symptoms.";
+  } 
+  else {
+    result = "Risk Level: LOW\n\nRecommendation: Monitor your symptoms and consider routine screening.";
+  }
+
+  document.getElementById("output").innerText = result;
+}
+</script>
+
+</body>
+</html>
